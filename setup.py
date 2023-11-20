@@ -5,10 +5,9 @@ import fileinput
 def run_command(command):
     try:
         result = subprocess.run(command, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-        return result.stdout
+        return 0, result.stdout
     except subprocess.CalledProcessError as e:
-        print(f"Error executing command: {e}")
-        return None
+        return e.returncode, e.stderr
 
 def update_release_upgrades_file():
     # Open the file for in-place editing
@@ -24,7 +23,12 @@ def main():
 
     # Upgrade installed packages
     print("Running: sudo apt upgrade")
-    run_command(["sudo", "apt", "upgrade", "-y"])
+    return_code, upgrade_output = run_command(["sudo", "apt", "upgrade", "-y"])
+
+    if return_code != 0:
+        print(f"Error upgrading packages:\n{upgrade_output}")
+    else:
+        print("Upgrade successful.")
 
     # Update the release-upgrades file
     print("Updating /etc/update-manager/release-upgrades file")
@@ -37,8 +41,12 @@ def main():
         print("Pending upgrades:")
         print(pending_upgrades)
         print("Running: sudo apt upgrade for pending upgrades")
-        run_command(["sudo", "apt", "upgrade", "-y"])
-        run_command(["sudo", "apt", "upgrade", "dkms"])
+        return_code, upgrade_output = run_command(["sudo", "apt", "upgrade", "-y"])
+        
+        if return_code != 0:
+            print(f"Error upgrading packages:\n{upgrade_output}")
+        else:
+            print("Upgrade successful.")
     else:
         print("No pending upgrades.")
 
