@@ -16,6 +16,18 @@ def update_release_upgrades_file():
             # Replace Prompt=lts with Prompt=normal
             print(line.replace("Prompt=lts", "Prompt=normal"), end="")
 
+def check_and_upgrade_to_latest():
+    # Check for a new release
+    new_release_available = run_command(["sudo", "do-release-upgrade", "-c"])
+
+    if "No new release found" not in new_release_available:
+        print("A new release is available.")
+        upgrade_response = input("Do you want to upgrade to the latest release? (y/n): ")
+
+        if upgrade_response.lower() == "y":
+            print("Running: sudo do-release-upgrade")
+            run_command(["sudo", "do-release-upgrade", "-f", "DistUpgradeViewNonInteractive"])
+
 def main():
     # Update package information
     print("Running: sudo apt update")
@@ -47,8 +59,9 @@ def main():
             print(f"Error upgrading packages:\n{upgrade_output}")
         else:
             print("Upgrade successful.")
-    else:
-        print("No pending upgrades.")
+    
+    # Check for a new release and upgrade
+    check_and_upgrade_to_latest()
 
 if __name__ == "__main__":
     main()
