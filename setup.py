@@ -38,7 +38,7 @@ def main():
         print(pending_upgrades)
         print("Running: sudo apt upgrade for pending upgrades")
         run_command(["sudo", "apt", "upgrade", "-y"])
-        run_command(["sudo", "apt", "update", "dkms"])
+        run_command(["sudo", "apt", "upgrade", "dkms"])
     else:
         print("No pending upgrades.")
 
