@@ -54,8 +54,8 @@ def main():
             print("Upgrade successful.")
 
         # Update dkms after pending upgrades
-        print("Running: sudo apt update dkms")
-        run_command(["sudo", "apt", "update", "dkms"])
+        print("Running: sudo apt upgrade dkms")
+        run_command(["sudo", "apt", "upgrade", "dkms"])
 
     # Check for a new release and upgrade
     check_and_upgrade_to_latest()
