@@ -82,11 +82,10 @@ def main():
     if ubuntu_version == "22.04":
         # For Ubuntu 22.04, update, upgrade, and install dkms
         update_upgrade_install_dkms()
-
-        # Continue with other tasks
+        #Update upgrade files 
+        update_release_upgrades_file()
+        # Upgrade to 23.04
         check_and_upgrade_to_latest()
-        install_python_packages()
-        clone_and_setup_errant()
     elif ubuntu_version == "20.04":
         # If Ubuntu version is 20.04, install required Python packages and set up Errant
         install_python_packages()
