@@ -86,6 +86,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
-
-This script will now first update, upgrade, and install `dkms` for Ubuntu 22.04 before proceeding with the other tasks.
