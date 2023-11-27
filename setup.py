@@ -52,8 +52,7 @@ def install_python_packages():
 def clone_and_setup_errant():
     # Change directory to /users/VTG003
     print("Changing directory to /users/VTG003")
-    run_command(["cd"])
-    run_command(["cd", "/users/VTG003"])
+    os.chdir("/users/VTG003")
 
     # Clone the Errant repository
     print("Running: git clone https://github.com/marty90/errant.git")
