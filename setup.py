@@ -1,6 +1,3 @@
-Certainly! I've added a new function called `update_upgrade_install_dkms` that performs the specified steps for updating, upgrading, and installing `dkms`. This function will be called as the first step for Ubuntu version 22.04. Here's the modified script:
-
-```python
 #!/usr/bin/env python3
 import subprocess
 import fileinput
