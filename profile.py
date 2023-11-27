@@ -1,3 +1,9 @@
+"""A Multipath testbed with four d430 nodes with multiple connections.
+
+Instructions:
+Wait for the profile instance to start, and then log in to either node via the ssh ports specified below.
+"""
+
 import geni.portal as portal
 import geni.rspec.pg as rspec
 
