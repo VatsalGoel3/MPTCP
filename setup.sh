@@ -75,14 +75,14 @@ main() {
     ubuntu_version=$(lsb_release -rs)
     echo "Detected Ubuntu version: $ubuntu_version"
 
-    if [ "$ubuntu_version" == "22.04" ]; then
+    if [ "$ubuntu_version" = "22.04" ]; then
         # For Ubuntu 22.04, update, upgrade, and install dkms
         update_upgrade_install_dkms
         # Update upgrade files
         update_release_upgrades_file
         # Upgrade to 23.04
         check_and_upgrade_to_latest
-    elif [ "$ubuntu_version" == "20.04" ]; then
+    elif [ "$ubuntu_version" = "20.04" ]; then
         # If Ubuntu version is 20.04, install required Python packages and set up Errant
         install_python_packages
         clone_and_setup_errant
