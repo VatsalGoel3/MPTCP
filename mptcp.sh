@@ -1,4 +1,4 @@
-For 1
+#For 1
 ip mptcp endpoint flush
 ip mptcp limits set subflow 2 add_addr_accepted 2
 
@@ -15,7 +15,7 @@ ip route add default via 10.10.3.2 dev eno4 table 2
 
 ip route add default scope global nexthop via 10.10.1.2 dev enp5s0f1
 
-For 2
+#For 2
 ip mptcp endpoint flush
 ip mptcp limits set subflow 2 add_addr_accepted 2
 
@@ -33,7 +33,7 @@ ip route add default via 10.10.4.1 dev eno4 table 4
 ip route add default scope global nexthop via 10.10.4.1 dev eno4
 
 
-Extra
+#Extra
 sysctl -w net.mptcp.enabled=1
 sysctl -w net.mptcp.checksum_enabled=1
 sysctl -w net.mptcp.pm_type=1
