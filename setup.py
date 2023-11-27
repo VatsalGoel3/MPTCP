@@ -52,16 +52,17 @@ def install_python_packages():
 
 def clone_and_setup_errant():
     # Change directory to /users/VTG003
-    print("Changing directory to /users/VTG003")
     os.chdir("/users/VTG003")
 
-    # Clone the Errant repository
-    print("Running: git clone https://github.com/marty90/errant.git")
+    # Clone the errant repository
     run_command(["git", "clone", "https://github.com/marty90/errant.git"])
 
-    # Set up the path variable
-    print("Setting up path variable")
-    run_command(["export", "PATH=$PATH:/users/VTG003/errant"])
+    # Set up the PATH variable
+    errant_path = "/users/VTG003/errant"
+    os.environ['PATH'] += ':' + errant_path
+
+    # Print the updated PATH for verification
+    print(f"Updated PATH: {os.environ['PATH']}")
 
 def reboot_system():
     print("Rebooting the system")
