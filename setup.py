@@ -50,6 +50,10 @@ def install_python_packages():
     run_command(["pip", "install", "scipy==1.6.3"])
 
 def clone_and_setup_errant():
+    # Change directory to /users/VTG003
+    print("Changing directory to /users/VTG003")
+    run_command(["cd", "/users/VTG003"])
+
     # Clone the Errant repository
     print("Running: git clone https://github.com/marty90/errant.git")
     run_command(["git", "clone", "https://github.com/marty90/errant.git"])
@@ -57,6 +61,10 @@ def clone_and_setup_errant():
     # Set up the path variable
     print("Setting up path variable")
     run_command(["export", "PATH=$PATH:/users/VTG003/errant"])
+
+def reboot_system():
+    print("Rebooting the system")
+    run_command(["sudo", "reboot"])
 
 def main():
     # Check Ubuntu version
@@ -83,6 +91,9 @@ def main():
         clone_and_setup_errant()
     else:
         print("Unsupported Ubuntu version. Please upgrade to 20.04 or 22.04.")
+
+    # Reboot the system after setup
+    reboot_system()
 
 if __name__ == "__main__":
     main()
