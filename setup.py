@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import subprocess
 import fileinput
+import os
 
 def run_command(command):
     try:
