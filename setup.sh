@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+exec > >(tee /var/log/setup.log) 2>&1
 
 run_command() {
     "$@"
