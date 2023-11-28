@@ -33,9 +33,33 @@ node4.hardware_type = "d430"
 
 # Create a link between the nodes
 link1 = request.Link(members=[node1, node2])
+interface1_node1 = node1.addInterface("eth1a")
+interface1_node1.addAddress(rspec.IPv4Address("10.0.0.1", "255.255.255.0"))
+
+interface1_node2 = node2.addInterface("eth1b")
+interface1_node2.addAddress(rspec.IPv4Address("10.0.0.2", "255.255.255.0"))
+
 link2 = request.Link(members=[node2, node4])
+interface2_node2 = node2.addInterface("eth2a")
+interface2_node2.addAddress(rspec.IPv4Address("192.168.0.1", "255.255.255.0"))
+
+interface2_node4 = node4.addInterface("eth2b")
+interface2_node4.addAddress(rspec.IPv4Address("192.168.0.2", "255.255.255.0"))
+
 link3 = request.Link(members=[node1, node3])
+interface3_node1 = node1.addInterface("eth3a")
+interface3_node1.addAddress(rspec.IPv4Address("10.0.1.1", "255.255.255.0"))
+
+interface3_node3 = node3.addInterface("eth3b")
+interface3_node3.addAddress(rspec.IPv4Address("10.0.1.2", "255.255.255.0"))
+
 link4 = request.Link(members=[node3, node4])
+interface4_node3 = node3.addInterface("eth4a")
+interface4_node3.addAddress(rspec.IPv4Address("192.168.1.1", "255.255.255.0"))
+
+interface4_node4 = node4.addInterface("eth4b")
+interface4_node4.addAddress(rspec.IPv4Address("192.168.1.2", "255.255.255.0"))
+
 
 # Add the service to run the setup script on each node
 # Add the service to run the setup script on each node
