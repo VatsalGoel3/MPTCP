@@ -57,7 +57,7 @@ clone_and_setup_errant() {
     cd /users/VTG003 || exit
 
     # Clone the errant repository
-    run_command git clone https://github.com/marty90/errant.git
+    run_command git clone https://github.com/VatsalGoel3/errant.git
 
     # Set up the PATH variable
     errant_path="/users/VTG003/errant"
