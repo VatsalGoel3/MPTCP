@@ -13,14 +13,14 @@ run_command() {
 
 update_upgrade_install_dkms() {
     # Update, upgrade, and install dkms for Ubuntu 22.04
-    echo "Running: sudo apt-get update"
-    run_command sudo apt-get update
+    echo "Running: sudo apt update"
+    run_command sudo apt update
 
-    echo "Running: sudo apt-get upgrade"
-    run_command sudo apt-get upgrade -y
+    echo "Running: sudo apt upgrade"
+    run_command sudo apt upgrade -y
 
-    echo "Running: sudo apt-get install dkms -y --allow-change-held-packages"
-    run_command sudo apt-get install dkms -y --allow-change-held-packages
+    echo "Running: sudo apt install dkms -y --allow-change-held-packages"
+    run_command sudo apt install dkms -y --allow-change-held-packages
 }
 
 update_release_upgrades_file() {
@@ -36,14 +36,14 @@ check_and_upgrade_to_latest() {
 
 install_python_packages() {
     # Install python3-pip, pandas, and scipy
-    echo "Running: sudo apt-get update"
-    run_command sudo apt-get update
+    echo "Running: sudo apt update"
+    run_command sudo apt update
 
-    echo "Running: sudo apt-get upgrade"
-    run_command sudo apt-get upgrade -y
+    echo "Running: sudo apt upgrade"
+    run_command sudo apt upgrade -y
 
-    echo "Running: sudo apt-get install python3-pip -y"
-    run_command sudo apt-get install python3-pip -y
+    echo "Running: sudo apt install python3-pip -y"
+    run_command sudo apt install python3-pip -y
 
     echo "Running: pip install pandas==1.4.4"
     run_command pip install pandas==1.4.4
