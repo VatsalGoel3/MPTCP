@@ -38,7 +38,7 @@ link3 = request.Link(members=[node1, node3])
 link4 = request.Link(members=[node3, node4])
 
 # Add the service to run the setup script on each node
-node1.addService(rspec.Execute(shell="bash", command="sudo /local/repository/setup.sh"))
+node1.addService(rspec.Execute(shell="bash", command="sudo su VTG003 -c /local/repository/setup.sh"))
 node2.addService(rspec.Execute(shell="bash", command="sudo /local/repository/setup.sh"))
 node3.addService(rspec.Execute(shell="bash", command="sudo /local/repository/setup.sh"))
 node4.addService(rspec.Execute(shell="bash", command="sudo /local/repository/setup.sh"))
