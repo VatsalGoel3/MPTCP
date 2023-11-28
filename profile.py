@@ -73,5 +73,11 @@ link3.addInterface(eth2b)
 link4.addInterface(eth4a)
 link4.addInterface(eth4b)
 
+# Add the service to run the setup script on each node
+node1.addService(rspec.Execute(shell="bash", command="sudo chmod +x /local/repository/setup.sh && sudo /local/repository/setup.sh"))
+node2.addService(rspec.Execute(shell="bash", command="sudo chmod +x /local/repository/setup.sh && sudo /local/repository/setup.sh"))
+node3.addService(rspec.Execute(shell="bash", command="sudo chmod +x /local/repository/setup.sh && sudo /local/repository/setup.sh"))
+node4.addService(rspec.Execute(shell="bash", command="sudo chmod +x /local/repository/setup.sh && sudo /local/repository/setup.sh"))
+
 # Print the RSpec
 pc.printRequestRSpec(request)
