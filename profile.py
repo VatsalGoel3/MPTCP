@@ -30,25 +30,25 @@ node2.hardware_type = "d430"
 node3.hardware_type = "d430"
 node4.hardware_type = "d430"
 
-# Add interfaces and set IP addresses for h1
+# Add interfaces and set IP addresses for node1
 eth1a = node1.addInterface("eth1a")
 eth2a = node1.addInterface("eth2a")
 eth1a.addAddress(rspec.IPv4Address("10.0.0.1", "255.255.255.0"))
 eth2a.addAddress(rspec.IPv4Address("192.168.0.1", "255.255.255.0"))
 
-# Add interfaces and set IP addresses for r1
-eth1b = node1.addInterface("eth1b")
-eth3a = node1.addInterface("eth3a")
+# Add interfaces and set IP addresses for node2
+eth1b = node2.addInterface("eth1b")
+eth3a = node2.addInterface("eth3a")
 eth1b.addAddress(rspec.IPv4Address("10.0.0.2", "255.255.255.0"))
 eth3a.addAddress(rspec.IPv4Address("10.0.1.1", "255.255.255.0"))
 
-# Add interfaces and set IP addresses for r2
+# Add interfaces and set IP addresses for node3
 eth2b = node3.addInterface("eth2b")
 eth4a = node3.addInterface("eth4a")
 eth2b.addAddress(rspec.IPv4Address("192.168.0.2", "255.255.255.0"))
 eth4a.addAddress(rspec.IPv4Address("192.168.1.1", "255.255.255.0"))
 
-# Add interfaces and set IP addresses for h2
+# Add interfaces and set IP addresses for node4
 eth3b = node4.addInterface("eth3b")
 eth4b = node4.addInterface("eth4b")
 eth3b.addAddress(rspec.IPv4Address("10.0.1.2", "255.255.255.0"))
@@ -75,4 +75,3 @@ link4.addInterface(eth4b)
 
 # Print the RSpec
 pc.printRequestRSpec(request)
-
