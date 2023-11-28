@@ -64,11 +64,11 @@ link4 = request.LAN("link4")
 link1.addInterface(eth1a)
 link1.addInterface(eth1b)
 
-link2.addInterface(eth2a)
-link2.addInterface(eth2b)
+link2.addInterface(eth3a)
+link2.addInterface(eth3b)
 
-link3.addInterface(eth3a)
-link3.addInterface(eth3b)
+link3.addInterface(eth2a)
+link3.addInterface(eth2b)
 
 link4.addInterface(eth4a)
 link4.addInterface(eth4b)
