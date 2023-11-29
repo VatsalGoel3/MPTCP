@@ -54,6 +54,11 @@ ip -n h2 address add 192.168.1.2/24 dev eth4b
 ip netns exec h1 tc qdisc add dev eth1a root netem delay 5ms rate 200mbit
 ip netns exec h1 tc qdisc add dev eth2a root netem delay 5ms rate 1000mbit
 
+# Set the data rate and delay on the veth devices at h1
+ip netns exec r1 tc qdisc add dev eth3a root netem delay 5ms rate 200mbit
+ip netns exec r1 tc qdisc add dev eth4a root netem delay 5ms rate 1000mbit
+
+
 # Turn ON all ethernet devices
 ip -n h1 link set eth1a up
 ip -n h1 link set eth2a up
