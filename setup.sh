@@ -52,6 +52,22 @@ install_python_packages() {
     run_command pip install scipy==1.6.3
 }
 
+install_python_pandas() {
+    # Install python3-pip, pandas, and scipy
+    echo "Running: sudo apt update"
+    run_command sudo apt update
+
+    echo "Running: sudo apt upgrade"
+    run_command sudo apt upgrade -y
+
+    echo "Running: sudo apt install python3-pip -y"
+    run_command sudo apt install python3-pip -y
+
+    echo "Running: pandas install"
+    run_command sudo apt install python3-pandas -y
+
+}
+
 clone_and_setup_errant() {
     # Change directory to /users/VTG003
     cd /users/VTG003 || exit
@@ -84,6 +100,8 @@ main() {
         update_release_upgrades_file
         # Upgrade to 23.04
         check_and_upgrade_to_latest
+        #install pip and pandas
+        install_python_pandas
     elif [ "$ubuntu_version" = "20.04" ]; then
         # If Ubuntu version is 20.04, install required Python packages and set up Errant
         install_python_packages
