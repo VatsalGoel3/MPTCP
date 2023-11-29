@@ -8,7 +8,7 @@ def configure_network_interface(namespace, interface, download, upload, rtt):
         subprocess.run(['ip', 'netns', 'exec', namespace, 'tc', 'qdisc', 'replace', 'dev', interface, 'root', 'netem'])
 
         # Set the data rate and delay on the network interface
-        subprocess.run(['ip', 'netns', 'exec', namespace, 'tc', 'qdisc', 'add', 'dev', interface, 'root', 'netem', f'delay {rtt} rate {download}kbit'])
+        subprocess.run(['ip', 'netns', 'exec', namespace, 'tc', 'qdisc', 'add', 'dev', interface, 'root', 'netem', f'delay {rtt}ms rate {download}kbit'])
 
         # Print the imposed values
         print("Imposing values: ")
