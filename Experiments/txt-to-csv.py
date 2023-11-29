@@ -22,9 +22,9 @@ with open(output_file_path, 'w', newline='') as csv_file:
         values = line.strip().split(',')
         
         # Extract relevant information
-        download_speed = float(values[5])
-        upload_speed = float(values[6])
-        rtt = float(values[7])
+        download_speed = round(float(values[5]), 4)
+        upload_speed = round(float(values[6]), 4)
+        rtt = round(float(values[7]), 4)
         operator = values[1]
         
         # Write the values to the CSV file
