@@ -7,6 +7,17 @@ def run_command(command):
     output, error = process.communicate()
     return output.decode(), error.decode(), process.returncode
 
+def configure_network(iteration):
+    # Run the Bash script for network configuration
+    bash_script_path = "./script.sh"
+    bash_command = f"bash {bash_script_path} -i {iteration}"
+
+    print(f"Running bash command: {bash_command}")
+
+    # Run the Bash script for network configuration
+    subprocess.run(bash_command, shell=True)
+
+
 def extract_bitrate(iperf_output):
     lines = iperf_output.split('\n')
     for line in lines:
@@ -29,6 +40,7 @@ def extract_ping_rtt(ping_output):
 
 
 def main():
+    global num_iterations
     try:
         # Record the start time
         start_time = time.time()
@@ -37,7 +49,12 @@ def main():
         num_iterations = int(input("Enter the number of iterations to run: "))
         cooldown_period = int(input("Enter the cooldown period in seconds between iterations: "))
 
-        for iteration in range(num_iterations):
+        for iteration in range(1, num_iterations + 1):
+            # Running bash script to impose network conditions
+            configure_network(iteration)
+
+            time.sleep(2)
+
             # Run iperf3 command
             iperf_command = "sudo mptcpize run ip netns exec h1 iperf3 -c 10.0.1.2 -t 10"
             iperf_output, iperf_error, iperf_returncode = run_command(iperf_command)
