@@ -51,8 +51,8 @@ ip -n h2 address add 10.0.1.2/24 dev eth3b
 ip -n h2 address add 192.168.1.2/24 dev eth4b
 
 # Set the data rate and delay on the veth devices at h1
-ip netns exec h1 tc qdisc add dev eth1a root netem delay 1ms rate 400mbit
-ip netns exec h1 tc qdisc add dev eth2a root netem delay 1ms rate 1000mbit
+ip netns exec h1 tc qdisc add dev eth1a root netem delay 1ms rate 4000mbit
+ip netns exec h1 tc qdisc add dev eth2a root netem delay 1ms rate 4000mbit
 
 # Set the data rate and delay on the veth devices at r1 & r2
 ip netns exec r1 tc qdisc add dev eth3a root netem delay 1ms rate 400mbit
