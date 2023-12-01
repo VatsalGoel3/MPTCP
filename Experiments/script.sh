@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Default dataset files
-dataset_file2="4G-Telenor.csv"
-dataset_file1="Star.csv"
+dataset_file1="5G-Throughput-RTT-2023.csv"
+dataset_file2="4G-Throughput-RTT-2023.csv"
 
 # Fixed namespaces and interfaces
 namespace1="r1"
@@ -47,12 +47,12 @@ configure_network_interface() {
     rtt=$5
 
     # Set the qdisc to 'root' to enable further editing
-    ip netns exec "$namespace" tc qdisc replace dev "$interface" root netem delay "${rtt}ms" rate "${download}kbit"
+    ip netns exec "$namespace" tc qdisc replace dev "$interface" root netem delay "${rtt}ms" rate "${download}Mbit"
 
     # Print the imposed values
     echo "Imposing: "
-    echo "Download: ${download} kbit"
-    echo "Upload: ${upload} kbit"
+    echo "Download: ${download} Mbit"
+    echo "Upload: ${upload} Mbit"
     echo "RTT: ${rtt} ms"
     echo "on Network Interface $interface"
 }
