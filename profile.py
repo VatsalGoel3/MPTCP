@@ -6,6 +6,8 @@ Wait for the profile instance to start, and then log in to either node via the s
 
 import geni.portal as portal
 import geni.rspec.pg as rspec
+import geni.urn as URN
+import geni.rspec.emulab.pnext as PN
 
 # Create a portal context
 pc = portal.Context()
