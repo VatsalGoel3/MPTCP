@@ -32,11 +32,6 @@ node3.hardware_type = "d430"
 link1 = request.Link(members = [node1, node2])
 link2 = request.Link(members = [node2, node3])
 
-# Add the service to run the setup script on each node
-node1.addService(rspec.Execute(shell="bash", command="sudo chmod +x /local/repository/setup.sh && sudo /local/repository/setup.sh"))
-node2.addService(rspec.Execute(shell="bash", command="sudo chmod +x /local/repository/setup.sh && sudo /local/repository/setup.sh"))
-node3.addService(rspec.Execute(shell="bash", command="sudo chmod +x /local/repository/setup.sh && sudo /local/repository/setup.sh"))
-
 # Start VNC
 node1.startVNC()
 node2.startVNC()
