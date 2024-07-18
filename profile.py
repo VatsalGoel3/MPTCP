@@ -12,8 +12,9 @@ pc = portal.Context()
 
 # Create a Request object to start building the RSpec
 request = pc.makeRequestRSpec()
+request.initVNC()
 
-# Create four raw "PC" nodes
+# Create three raw "PC" nodes
 node1 = request.RawPC("node1")
 node2 = request.RawPC("node2")
 node3 = request.RawPC("node3")
